@@ -1,0 +1,50 @@
+# ========== UNITY ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+
+# Asset meta data should NOT be ignored
+# (Unity needs .meta files)
+!*.meta
+
+# Crash logs
+sysinfo.txt
+
+# ========== IDE ==========
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# ========== EXPORTS ==========
+*.apk
+*.aab
+*.unitypackage
+*.app
+*.exe
+*.ipa
+
+# WebGL builds
+Build/
