@@ -1,27 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // We need this line for uGUI to work.
+using TMPro;
 
 public class HighScore : MonoBehaviour
 {
-    static private Text _UI_TEXT;
+    static private TMP_Text _UI_TEXT;
     static private int _SCORE = 1000;
-
-    private Text txtCom;
 
     void Awake()
     {
-        _UI_TEXT = this.GetComponent<Text>();
+        _UI_TEXT = GetComponent<TMP_Text>();
 
-        // If the PlayerPrefs HighScore already exists, read it
         if (PlayerPrefs.HasKey("HighScore"))
         {
             SCORE = PlayerPrefs.GetInt("HighScore");
         }
 
-        // Assign the high score to PlayerPrefs
         PlayerPrefs.SetInt("HighScore", SCORE);
+        UpdateUI();
     }
 
     static public int SCORE
@@ -31,11 +26,15 @@ public class HighScore : MonoBehaviour
         {
             _SCORE = value;
             PlayerPrefs.SetInt("HighScore", value);
+            UpdateUI();
+        }
+    }
 
-            if (_UI_TEXT != null)
-            {
-                _UI_TEXT.text = "High Score: " + value.ToString("#,0");
-            }
+    static private void UpdateUI()
+    {
+        if (_UI_TEXT != null)
+        {
+            _UI_TEXT.text = "High Score: " + _SCORE.ToString("#,0");
         }
     }
 
